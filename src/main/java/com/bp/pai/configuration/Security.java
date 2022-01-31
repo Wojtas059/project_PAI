@@ -51,7 +51,7 @@ public class Security extends WebSecurityConfigurerAdapter {
         http.httpBasic().disable()
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/register").permitAll()
+                .antMatchers("/register").anonymous()
                 .antMatchers("/see").permitAll()
                 .anyRequest().authenticated()
                 .and()
