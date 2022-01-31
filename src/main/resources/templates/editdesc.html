@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<!DOCTYPE html>
+<html lang= "pl" xmlns:th="http://www.thymeleaf.org">
+    <head th:include="layout :: head">
+    </head>
+    <body>
+        <div th:include="layout :: navigationPanel"></div>
+        
+        <h4>Twoje recenzje alkoholi</h4>
+        <div th:if="${#lists.isEmpty(alcohols)}">
+            Brak Alkoholi w bazie danych...
+        </div>
+    
+        <div class="content"  th:each="alcohol:${alcohols}">
+            
+            <a th:href="@{/editdescid/}+${alcohol.alcoid}" ><p th:text = "${alcohol.name}"></p></a><br/>
+        </div>
+        
+            
+        
+        <div th:include="layout :: footer"></div>
+    </body>
+</html>

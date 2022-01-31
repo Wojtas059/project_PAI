@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<!DOCTYPE html>
+<html lang= "pl" xmlns:th="http://www.thymeleaf.org">
+    <head th:include="layout :: head">
+    </head>
+    <body>
+        <div th:include="layout :: navigationPanel"></div>
+        <h1>Edytuj alcohol:</h1>
+        <form th:action="@{/editdescid}" method="POST" th:object="${alcohol}">
+            <input type="number" hidden="true" th:field="*{alcoid}" placeholder="Alcoid"/>
+            <input type="text" th:field="*{name}" placeholder="Nazwa alkoholu"/>
+            <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+            <br />
+            
+            <select th:field="*{type}">
+                <option value="Single Malt">Single Malt</option>
+                <option value="Single Malt">Single Malt</option>
+                <option value="Bourbon">Bourbon</option>
+                <option value="Wheat Whiskey">Wheat Whiskey</option>
+                <option value="Blended whisky">Blended whisky</option>
+              </select>
+            <br />
+            <input type="number" th:field="*{yo_old}" placeholder="Deklaracja wieku producenta"/>
+            <span class="error" th:if="${#fields.hasErrors('yo_old')}" th:errors="*{yo_old}"></span>
+            <br />
+            
+            <textarea type="textarea" th:field="*{description}" rows="4" cols="50" placeholder="Opis alkoholu"></textarea>
+            <span class="error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+            <br />
+            
+            <input type="text" th:field="*{finish}" placeholder="Finish"/>
+            <span class="error" th:if="${#fields.hasErrors('finish')}" th:errors="*{finish}"></span>
+            <br />
+            <input type="text" th:field="*{link_url_photo}" placeholder="Link do zdjęcia url"/>
+            <span class="error" th:if="${#fields.hasErrors('link_url_photo')}" th:errors="*{link_url_photo}"></span>        
+<br />
+  <button type="submit">Edytuj</button>
+        </form>
+        <div th:include="layout :: footer"></div>
+    </body>
+</html>

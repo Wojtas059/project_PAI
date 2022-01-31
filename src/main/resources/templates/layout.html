@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<!DOCTYPE html>
+<html lang= "pl" xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="head">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Spring login application - Politechnika Lubelska</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <style>
+            * {
+  box-sizing: border-box;
+}
+            .footer {
+            position: fixed;
+            padding: 10px 10px 0px 10px;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            /* Height of the footer*/ 
+            height: 40px;
+            background: grey;
+        }
+            
+            
+            th,td {
+                border: solid 1px black;
+                padding: 5px;
+            }
+            .content {
+                content: "";
+                display: flex;
+                clear: both;
+                margin-bottom: 20px
+                
+              }
+              
+              .column1
+              {
+                flex: 50%;
+                padding: 10px;
+                bottom: 20px;
+              }
+              .column2
+              {
+                    flex: 50%;
+                    padding: 10px;
+                    bottom: 20px;
+  
+              }
+              
+              .center
+              {
+                  margin-left: 30%;
+                  margin-right:  30%;
+              }
+        </style>
+    </head>
+    <body>
+        
+        
+        
+        
+        <div th:fragment="navigationPanel" >
+            
+  
+
+            
+            
+            
+            
+            <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                    <a class="navbar-brand" th:href="@{/see}">Zobacz recenzje</a>
+              </div>
+              <ul class="nav navbar-nav">
+                <li sec:authorize="!isAuthenticated()"><a th:href="@{/register}">Zarejestruj się</a></li>
+                
+                <li sec:authorize="!isAuthenticated()"><a th:href="@{/login}">Zaloguj się</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/add}">Dodaj</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/profile}">Profil</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/edit}">Edytacja użytkownika</a></li>
+                 <li sec:authorize="isAuthenticated()"><a th:href="@{/editdesc}">Edytacja Twoich recenzji</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/delete}">Usuń użytkownika</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Wyloguj się</a></li>
+
+              </ul>
+            </div>
+          </nav>
+ 
+               
+        </div>
+        <div th:fragment="footer">
+            <footer class="footer">
+                <p>Politechnika Lubelska, wprowadzenie do Spring Boot</p>
+            </footer>
+        </div>
+    </body>
+</html>

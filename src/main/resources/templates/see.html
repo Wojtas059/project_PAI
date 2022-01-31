@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<!DOCTYPE html>
+<html lang= "pl" xmlns:th="http://www.thymeleaf.org">
+    <head th:include="layout :: head">
+         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Alkohol to nie nałóg!</title>
+        
+        
+    </head>
+<body>
+    <div th:include="layout :: navigationPanel"></div>
+    
+    <div class="center">
+     <h1>Lista alkoholi:</h1>   
+        
+    </div>
+    
+    <div th:if="${#lists.isEmpty(alcohols)}">
+            Brak Alkoholi w bazie danych...
+    </div>
+    
+    
+    <div class="content"  th:each="alcohol:${alcohols}">
+        <div class="column1">
+        <img alt="Qries" th:src="${alcohol.link_url_photo}"  width="400" height="400"/>
+        </div>
+        <div class="column2">
+            <h4><b><p th:text = "${alcohol.name}"></b></p></h4>
+        <b>Deklaracja wieku:</b> <p th:text = "${alcohol.yo_old}"></p>
+        <b>Rodzaj:</b> <p th:text = "${alcohol.type}"></p>
+        <b>Opis:</b>  <p th:text = "${alcohol.description}"></p>
+         
+           <b>Autor:</b>  <p th:text = "${users.findByUserid(alcohol.userid) != null}? ${users.findByUserid(alcohol.userid).name} :'Użytkownik nie istnieje '"></p>
+        
+        
+        <b>Finish:</b> <p th:text = "${alcohol.finish}"></p>
+        </div>
+    </div>
+    <div class="marian">
+        <hr>
+        <p>Politechnika Lubelska </p>
+        
+    </div>
+      
+     <div id="container" th:include="layout :: footer"></div>
+   </body>
+</html>
