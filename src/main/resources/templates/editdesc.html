@@ -9,10 +9,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </head>
     <body>
         <div th:include="layout :: navigationPanel"></div>
-        
+        <div class="container">
         <h4>Twoje recenzje alkoholi</h4>
         <div th:if="${#lists.isEmpty(alcohols)}">
-            Brak Alkoholi w bazie danych...
+            Nie masz żadnej recenzji...
         </div>
     
         <div class="content"  th:each="alcohol:${alcohols}">
@@ -20,7 +20,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <a th:href="@{/editdescid/}+${alcohol.alcoid}" ><p th:text = "${alcohol.name}"></p></a><br/>
         </div>
         
-            
+        </div>
         
         <div th:include="layout :: footer"></div>
     </body>

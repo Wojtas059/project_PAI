@@ -45,7 +45,7 @@ public class Alcohol {
     
     @NotNull
     @Pattern(regexp = "[^*]{10,100}",
-            message = "Podaj finish sożytego alkoholu")
+            message = "Podaj finish spożytego alkoholu")
     private String finish;
     
     

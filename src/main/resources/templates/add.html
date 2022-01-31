@@ -9,14 +9,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </head>
     <body>
         <div th:include="layout :: navigationPanel"></div>
+        <div class="container">
         <h1>Dodaj alkohol:</h1>
         <form th:action="@{/add}" method="POST" th:object="${alcohol}">
          
-            <input type="text" th:field="*{name}" placeholder="Nazwa alkoholu"/>
+            <input class="form-control" type="text" th:field="*{name}" placeholder="Nazwa alkoholu"/>
             <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
             <br />
             
-            <select th:field="*{type}">
+            <select class="form-control" th:field="*{type}">
                 <option value="Single Malt">Single Malt</option>
                 <option value="Single Malt">Single Malt</option>
                 <option value="Bourbon">Bourbon</option>
@@ -24,22 +25,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <option value="Blended whisky">Blended whisky</option>
               </select>
             <br />
-            <input type="number" th:field="*{yo_old}" placeholder="Deklaracja wieku producenta"/>
+            <input class="form-control" type="number" th:field="*{yo_old}" placeholder="Deklaracja wieku producenta"/>
             <span class="error" th:if="${#fields.hasErrors('yo_old')}" th:errors="*{yo_old}"></span>
             <br />
             
-            <textarea type="textarea" th:field="*{description}" rows="4" cols="50" placeholder="Opis alkoholu"></textarea>
+            <textarea class="form-control" type="textarea" th:field="*{description}" rows="4" cols="50" placeholder="Opis alkoholu"></textarea>
             <span class="error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
             <br />
             
-            <input type="text" th:field="*{finish}" placeholder="Finish"/>
+            <input class="form-control" type="text" th:field="*{finish}" placeholder="Finish"/>
             <span class="error" th:if="${#fields.hasErrors('finish')}" th:errors="*{finish}"></span>
             <br />
-            <input type="text" th:field="*{link_url_photo}" placeholder="Link do zdjęcia url"/>
+            <input class="form-control" type="text" th:field="*{link_url_photo}" placeholder="Link do zdjęcia url"/>
             <span class="error" th:if="${#fields.hasErrors('link_url_photo')}" th:errors="*{link_url_photo}"></span>        
 <br />
-  <button type="submit">Dodaj ogłoszenie</button>
+  <button class=" btn btn-secondary btn-block" type="submit">Dodaj ogłoszenie</button>
         </form>
+        </div>
         <div th:include="layout :: footer"></div>
     </body>
 </html>

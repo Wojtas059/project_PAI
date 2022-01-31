@@ -9,12 +9,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
  </head>
  <body>
  <div th:include="layout :: navigationPanel"></div>
+ 
+ <div class="container">
  <h1>Logowanie do systemu:</h1>
- <form th:action="@{/login}" method="POST">
- <input type="text" name="login" placeholder="Login"/>
- <input type="password" name="passwd" placeholder="Hasło"/>
- <button type="submit">Zaloguj się</button>
+ <form  th:action="@{/login}" method="POST">
+ <input class="form-control" type="text" name="login" placeholder="Login"/>
+ <input class="form-control" type="password" name="passwd" placeholder="Hasło"/>
+ <button class="  btn btn-secondary btn-block" type="submit">Zaloguj się</button>
  </form>
+ </div>
  <div th:include="layout :: footer"></div>
  </body>
 </html>
